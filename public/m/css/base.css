@@ -1,0 +1,39 @@
+html {
+  touch-action: none;
+}
+body,
+.mui-content {
+  background-color: #fff;
+}
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+a {
+  color: #000;
+}
+input {
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+/* 公共样式 */
+.my-header {
+  background-color: #006699;
+}
+.my-header h1 {
+  color: #fff;
+}
+.my-header .mui-icon {
+  color: #fff;
+}
+.my-footer {
+  background-color: #006699;
+}
+.my-footer .mui-tab-item {
+  color: #fff;
+}
+.my-footer .mui-tab-item.mui-active {
+  color: darkorange;
+}
