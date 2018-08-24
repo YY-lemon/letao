@@ -54,21 +54,27 @@
         </a>
     </nav>
     <div class="mui-content">
-        <a href="" class="addAddress mui-icon mui-icon-plus">添加收货地址</a>
+        <a href="addAddress.html?isEdit=0" class="addAddress mui-icon mui-icon-plus">添加收货地址</a>
         <ul class="mui-table-view addressBox">
-                <li class="mui-table-view-cell mui-media">
-                        <a href="javascript:;">
-                            <div class="mui-media-body">
-                                邮编:100010 收货人:孙悟空
-                                <p class='mui-ellipsis'>北京市北京市东城区黑马程序员顺义校区</p>
-                            </div>
-                        </a>
-                    </li>
+
         </ul>
     </div>
     <script id="addressTpl" type="text/template">
-        {{each list}}
-        
+        {{each result}}
+        <li class="mui-table-view-cell mui-media">
+                <div class="mui-slider-right mui-disabled ">
+                    <a class="mui-btn mui-btn-blue edit-btn" data-id={{$value.id}}>编辑</a>
+					<a class="mui-btn mui-btn-red delete-btn" data-id={{$value.id}}>删除</a>
+				</div>
+
+                <div class="mui-media-body mui-slider-handle">
+                    邮编:{{$value.postCode}} 收货人:{{$value.recipients
+                    }}
+                    <p class='mui-ellipsis'>{{$value.address}}{{$value.addressDetail
+                    }}</p>
+                </div>
+           
+        </li>
         {{/each}}
     </script>
 </body>

@@ -8,12 +8,9 @@
 	<link rel="stylesheet" href="css/system.css">
 	<script src="assets/jquery/jquery.min.js"></script>
 	<script src="assets/bootstrap/js/bootstrap.min.js"></script>
-	<script src="assets/artTemplate/template-native.js"></script>
-	<script src="assets/jquery-fileupload/jquery.ui.widget.js"></script>
-	<script src="assets/jquery-fileupload/jquery.iframe-transport.js"></script>
-	<script src="assets/jquery-fileupload/jquery.fileupload.js"></script>
+	<script src="./assets/artTemplate/template-web.js"></script>
 	<script src="js/common.js"></script>
-	<script src="js/category-second.js"></script>
+	<script src="./js/category-first.js"></script>
 </head>
 <body>
 	<div class="system">
@@ -39,10 +36,10 @@
 							<i class="fa fa-angle-right"></i>
 						</a>
 						<ul class="list-unstyled">
-							<li>
+							<li class="active">
 								<a href="category-first.html">一级分类管理</a>
 							</li>
-							<li class="active">
+							<li>
 								<a href="category-second.html">二级分类管理</a>
 							</li>
 						</ul>
@@ -74,19 +71,21 @@
 	            </nav>
 	        </div>
 	        <div class="body">
-	        	<button class="operation btn btn-primary" data-toggle="modal" data-target=".category-second">添加分类</button>
-	        	<table class="table table-bordered" id="categoryBox">
-	        		
+	        	<button class="operation btn btn-primary" data-toggle="modal" data-target=".category-first">添加分类</button>
+	        	<table class="table table-bordered">
+	        		<tbody class="categoryFirstBox">
+
+					</tbody>
 	        	</table>
 	        	<div class="btn-group page">
-	        		<div class="btn btn-default" id="prevBtn" id="prevBtn">上一页</div>
-	        		<div class="btn btn-default" id="nextBtn" id="nextBtn">下一页</div>
+	        		<div class="btn btn-default prve">上一页</div>
+	        		<div class="btn btn-default next">下一页</div>
 	        	</div>
 	        </div>
 		</div>
 	</div>
 
-	<div class="modal fade category-second">
+	<div class="modal fade category-first">
 		<div class="modal-dialog modal-lg">
 			<div class="modal-content">
 				<div class="modal-header">
@@ -94,53 +93,28 @@
 					<h4 class="modal-title" id="myLargeModalLabel">添加分类</h4>
 				</div>
 				<div class="modal-body">
-					<div class="form-group" id="firstCategory">
-						
-					</div>
 					<div class="form-group">
-						<input type="text" class="form-control" placeholder="请输入商品名称" id="brandName">
+						<input type="text" class="form-control" placeholder="请输入分类的名称" name="cateFirstName">
 					</div>
-				
-					<div class="form-group">
-						<input type="file" class="form-control" id="fileUpload" data-url="/category/addSecondCategoryPic" name="file" accept="image/jpeg">
-					</div>
-					<img src="images/brand6.png" class="img-thumbnail" id="showBrand">
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-					<button type="button" class="btn btn-primary" id="addCategory">保存</button>
+					<button type="button" class="btn btn-primary saveBtn">保存</button>
 				</div>
 			</div>
 		</div>
 	</div>
-	
-	<script id="categoryTpl" type="text/html">
+	<script id="categoryFirstTpl" type="text/template">
 		<tr>
-			<th>品牌编号</th>
-			<th>品牌名称</th>
-			<th>品牌logo</th>
-			<th>所属分类</th>
+			<th>分类的编号</th>
+			<th>分类名称</th>
 		</tr>
-		<% for(var i=0;i<data.rows.length;i++){ %>
+		{{each rows}}
 		<tr>
-			<td><%=data.rows[i].id %></td>
-			<td><%=data.rows[i].brandName %></td>
-			<td>
-				<img src="<%=data.rows[i].brandLogo %>">
-			</td>
-			<td><%=data.rows[i].categoryName %></td>
+			<td>{{$value.id}}</td>
+			<td>{{$value.categoryName}}</td>
 		</tr>
-		<% } %>
+		{{/each}}
 	</script>
-
-	<script id="firstCategoryTpl" type="text/html">
-		<select class="form-control" id="categoryId">
-			<option value="-1">-- 请选择 --</option>
-			<% for(var i=0;i<data.length;i++){ %>
-				<option value="<%=data[i].id %>"><%=data[i].categoryName %></option>
-			<% } %>
-		</select>
-	</script>
-
 </body>
 </html>

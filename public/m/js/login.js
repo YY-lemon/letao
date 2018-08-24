@@ -6,8 +6,8 @@ $(function() {
             mui.toast('请输入用户名');
             return;
         }
-        var reg3 = /^[a-zA-Z]\w{5,17}$/;
-        if(!reg3.test(password)) {
+        // var reg3 = /^[a-zA-Z]\w{5,17}$/;
+        if(!password) {
             mui.toast('请输入正确的密码');
             return;
         }

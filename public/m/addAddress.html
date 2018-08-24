@@ -9,10 +9,16 @@
     <link rel="stylesheet" href="./assets/mui/css/mui.min.css">
     <link rel="stylesheet" href="./css/base.css">
     <link rel="stylesheet" href="./css/form.css">
+    <link rel="stylesheet" href="./assets/mui/css/mui.picker.css">
+    <link rel="stylesheet" href="./assets/mui/css/mui.poppicker.css">
     <link rel="stylesheet" href="./assets/fontAwesome/css/font-awesome.min.css">
     <script src="./assets/zepto/zepto.min.js"></script>
     <script src="./assets/mui/js/mui.min.js"></script>
+    <script src="./assets/mui/js/mui.picker.js"></script>
+    <script src="./assets/mui/js/mui.poppicker.js"></script>
     <script src="./js/common.js"></script>
+    <script src="./js/addAddress.js"></script>
+    <script src="./js/city.js"></script>
 </head>
 
 <body>
@@ -45,16 +51,16 @@
                 <input type="text" class="mui-input-clear" placeholder="收货人姓名" name="username">
             </div>
             <div class="mui-input-row">
-                <input type="tel" class="mui-input-clear" placeholder="邮编" name="mobile">
+                <input type="number" class="mui-input-clear" placeholder="邮编" name="postCode">
             </div>
             <div class="mui-input-row">
-                <input type="password" placeholder="省市区" name="password">
+                <input type="text" placeholder="省市区" name="city" readonly id="selectCity">
             </div>
             <div class="mui-input-row">
-                <input type="password" placeholder="详细地址" name="againPass">
+                <input type="text" placeholder="详细地址" name="address">
             </div>
             <div class="mui-button-row">
-                <button type="button" class="mui-btn mui-btn-primary" id="register-btn">确认</button>
+                <button type="button" class="mui-btn mui-btn-primary" id="addAddress-btn">确认</button>
             </div>
         </form>
     </div>
